@@ -1,0 +1,211 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Root */
+:root {
+    /* Colors */
+    /* Primary */
+    --blue: hsl(223, 87%, 63%);
+    /* Secondary */
+    --pale-blue: hsl(223, 100%, 88%);
+    --light-red: hsl(354, 100%, 66%);
+    /* Neutral */
+    --gray: hsl(0, 0%, 59%);
+    --dark-blue: hsl(209, 33%, 12%);
+    /* Typography */
+    --body-font: "Libre Franklin", sans-serif;
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-bold: 600;
+}
+
+/* Body Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--body-font);
+    font-size: 20px;
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5rem;
+}
+
+.logo {
+    padding-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    letter-spacing: -0.5px;
+}
+
+h1 > span {
+    font-weight: 100;
+}
+
+p {
+    font-size: 1rem;
+    padding-bottom: 1.5rem;
+    color: var(--gray);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding-bottom: 2rem;
+}
+
+form > input {
+    min-width: 250px;
+    padding: 0.75rem;
+    border-radius: 25px;
+    border: 1px solid var(--pale-blue);
+    margin-bottom: 0.5rem;
+    color: var(--gray);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form > button {
+    min-width: 250px;
+    padding: 0.75rem;
+    border-radius: 25px;
+    border: none;
+    background-color: var(--blue); 
+    color: white;
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+form > button:hover {
+    background-color: hsl(223, 87%, 70%);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form > input:focus, form > button:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+}
+
+form > input::placeholder {
+    color: var(--gray);
+    opacity: 50%;
+    padding-left: 1.5rem;
+}
+
+.error-message {
+    color: var(--light-red);
+    font-size: 0.75rem;
+    padding-bottom: 1rem;
+}
+
+.error-message-hidden {
+    display: none;
+}
+
+.empty-error-message-hidden {
+    display: none;
+}
+
+img {
+    max-width: 300px;
+    padding-bottom: 2rem;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+}
+
+.socials > a {
+    color: var(--blue);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.socials > a:hover {
+    color: var(--light-red);
+}
+
+.fa-brands {
+    padding-top: 2rem;
+    padding: 1rem;
+    border: 1px solid var(--pale-blue);
+    border-radius: 50%;
+    color: var(--blue);
+    font-size: 12px;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    color: var(--gray);
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.attribution {
+    font-size: 0.7rem;
+    color: var(--dark-cyan);
+}
+
+.attribution a {
+    color: var(--medium-cyan);
+    text-decoration: none;
+}
+
+.attribution a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .wrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    form {
+        flex-direction: row;
+        gap: 1rem;
+    }
+    
+    form > input, form > button {
+        margin-bottom: 0;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+}
