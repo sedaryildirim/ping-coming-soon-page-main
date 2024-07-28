@@ -1,48 +1,48 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('subscribe-form');
     const emailInput = document.getElementById('email');
     const errorMessage = document.querySelector('.error-message');
-    const emptyErrorMessage = document.querySelector('.empty-error-message-hidden');
 
-    function validateEmail(email) {
+    const validateEmail = (email) => {
         const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return re.test(email);
-    }
+    };
 
-    function setInvalidStyle(invalid) {
-        if (invalid) {
-            emailInput.style.outline = '2px solid var(--light-red)';
-            emailInput.style.outlineOffset = '2px';
-        } else {
-            emailInput.style.outline = '';
-            emailInput.style.outlineOffset = '';
-        }
-    }
+    const setInvalidStyle = (invalid) => {
+        emailInput.style.border = invalid ? '2px solid var(--light-red)' : '1px solid var(--pale-blue)';
+    };
 
-    form.addEventListener('submit', function(e) {
+    const showError = (message) => {
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+        setInvalidStyle(true);
+    };
+
+    const hideError = () => {
+        errorMessage.textContent = '';
+        errorMessage.style.display = 'none';
+        setInvalidStyle(false);
+    };
+
+    form.addEventListener('submit', (e) => {
         e.preventDefault();
         const email = emailInput.value.trim();
 
-        errorMessage.classList.add('error-message-hidden');
-        emptyErrorMessage.classList.add('empty-error-message-hidden');
-        setInvalidStyle(false);
-
         if (email === '') {
-            emptyErrorMessage.classList.remove('empty-error-message-hidden');
-            setInvalidStyle(true);
+            showError('Whoops! It looks like you forgot to add your email');
         } else if (!validateEmail(email)) {
-            errorMessage.classList.remove('error-message-hidden');
-            setInvalidStyle(true);
+            showError('Please provide a valid email address');
         } else {
             // Email is valid, you can submit the form or perform other actions here
             console.log('Valid email:', email);
             // Uncomment the next line to submit the form
             // form.submit();
+            
+            // Reset form and styles
+            form.reset();
+            hideError();
         }
     });
 
-    // Remove invalid style when user starts typing
-    emailInput.addEventListener('input', function() {
-        setInvalidStyle(false);
-    });
+    emailInput.addEventListener('input', hideError);
 });

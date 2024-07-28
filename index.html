@@ -3,43 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <title>Ping Coming Soon Page</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Frontend Mentor | Ping coming soon page</title>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <main class="wrapper">
-        <header>
-            <img src="./assets/images/logo.svg" alt="Ping logo" class="logo">
-        </header>
+        <img src="./assets/images/logo.svg" alt="Ping logo" class="logo">
         
-        <h1><span>We are launching </span>soon!</h1>
+        <h1><span>We are launching</span> soon!</h1>
         <p>Subscribe and get notified</p>
         
-        <form  id="subscribe-form" class="subscribe-form" novalidate>
-            <label for="email" class="visually-hidden"></label>
-            <input type="email" id="email" name="email" placeholder="Your Email Address...">
+        <form id="subscribe-form" novalidate>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Your email address" aria-label="Your email address" required>
+                <p class="error-message" aria-live="polite"></p>
+            </div>
             <button type="submit">Notify Me</button>
-            <p class="error-message error-message-hidden">Please provide a valid email address</p>
-            <p class="error-message empty-error-message-hidden">Please enter a valid email address</p>
         </form>
         
         <img src="./assets/images/illustration-dashboard.png" alt="Dashboard illustration" class="dashboard-image">
         
         <div class="socials">
-            <i class="fa-brands fa-facebook-f"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
         
         <p class="copyright">&copy; Copyright Ping. All rights reserved.</p>
     </main>
     
-    <footer class="attribution">
-        Challenged by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
-        Coded by <a href="https://www.frontendmentor.io/profile/sedaryildirim">Sedar Yildirim</a>.
+    <footer>
+        <p class="attribution">
+            Challenged by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>. 
+            Coded by <a href="https://www.frontendmentor.io/profile/sedaryildirim">Sedar Yildirim</a>.
+        </p>
     </footer>
+    
     
     <script src="./assets/js/script.js"></script>
 </body>
